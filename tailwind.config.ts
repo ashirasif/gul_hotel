@@ -6,9 +6,19 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        bebas: ["Bebas Neue"],
+        lato: ["lato"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          primary: "#bf0000"
+        }
+      }
+    ]
+  }
 } satisfies Config;

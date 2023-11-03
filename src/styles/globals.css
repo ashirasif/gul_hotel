@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,900;1,400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .page {
+        @apply w-screen h-screen
+    }
+
+    .aflex {
+        @apply flex flex-col items-center justify-center
+    }
+    
+    
+}
+
+@layer base {
+    h1 {
+        @apply text-7xl text-white uppercase font-bebas
+    }
+    p {
+        @apply text-white
+    }
+    a {
+        @apply text-white lg:text-slate-400 hover:text-white transition-colors duration-300 
+    }
+    
+}
+
+
