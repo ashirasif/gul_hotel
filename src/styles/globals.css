@@ -1,31 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,900;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,900;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-    .page {
-        @apply w-screen h-screen
-    }
+  .page {
+    @apply h-screen w-screen;
+  }
 
-    .aflex {
-        @apply flex flex-col items-center justify-center
-    }
-    
-    
+  .aflex {
+    @apply flex flex-col items-center justify-center p-8 lg:flex-row;
+  }
+
+  .img {
+    @apply rounded-2xl;
+  }
+
+  .spacer {
+    @apply h-20 lg:h-60
+  }
 }
 
 @layer base {
-    h1 {
-        @apply text-7xl text-white uppercase font-bebas
-    }
-    p {
-        @apply text-white
-    }
-    a {
-        @apply text-white lg:text-slate-400 hover:text-white transition-colors duration-300 
-    }
-    
+  h1 {
+    @apply font-bebas text-7xl uppercase text-white lg:text-8xl 2xl:text-9xl;
+  }
+  h2 {
+    @apply text-center font-bebas text-4xl font-bold tracking-wider text-white lg:text-left 2xl:text-5xl;
+  }
+  p {
+    @apply text-center font-lato text-white lg:text-left 2xl:text-xl;
+  }
+  a {
+    @apply text-white transition-colors duration-300 hover:text-white lg:text-slate-400;
+  }
 }
 
-
+body {
+  @apply overflow-x-hidden;
+}

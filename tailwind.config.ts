@@ -16,9 +16,9 @@ export default {
     themes: [
       {
         dark: {
-          primary: "#bf0000"
-        }
-      }
-    ]
-  }
+          primary: "#bf0000",
+        },
+      },
+    ],
+  },
 } satisfies Config;
