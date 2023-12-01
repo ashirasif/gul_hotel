@@ -1,4 +1,4 @@
-import { roomRouter } from "~/server/api/routers/post";
+import { roomRouter } from "~/server/api/routers/rooms";
 import { createTRPCRouter } from "~/server/api/trpc";
 
 /**

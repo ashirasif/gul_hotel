@@ -6,6 +6,8 @@ import Cursor from "~/components/cursor";
 import { useState } from "react";
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { api } from "~/utils/api";
+import Page3 from "~/components/page3";
+import Footer from "~/components/footer";
 
 const pageScroll = atom(0);
 
@@ -13,7 +15,6 @@ export default function Home() {
   const [Read, setRead] = useState(false);
   const page = useAtomValue(pageScroll);
   const setPage = useSetAtom(pageScroll);
-  const hello = api.room.hello.useQuery({text: "ashir"})  
 
   return (
     <>
@@ -23,8 +24,9 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Cursor />
+      <Navbar />
       <main className="bg-black">
-        <Navbar />
+      
         <section className="page overflow-hidden bg-gradient-to-b from-teal-950 to-black">
           <div className="flex flex-row">
             <div className="flex min-h-screen w-1/2 flex-col items-end justify-center bg-black/60 p-4">
@@ -46,11 +48,11 @@ export default function Home() {
         {/* PAGE 1 END */}
         <div className="spacer"></div>
         {/* PAGE 2 */}
-        <section className="flex flex-col bg-gradient-to-b from-black to-slate-950">
+        <section className="bg-gradient-to-b from-black to-slate-950">
           <div className="aflex gap-12">
             <article className="basis-1/2 self-center">
-              <h2>How Things Go Here!</h2>
-              <p className={"lg:pt-4" + (Read ? "" : " max-md:line-clamp-5")}>
+              <h2 className="lg:text-center">How Things Go Here!</h2>
+              <p className={"lg:pt-4 lg:text-center" + (Read ? "" : " max-md:line-clamp-5")}>
                 No fancy bells and whistles, just quality rest and relaxation at
                 a great price. In a world where travel often comes with a hefty
                 price tag, our hotel stands as a refreshing oasis of simplicity
@@ -69,7 +71,7 @@ export default function Home() {
                   Read {Read ? "Less" : "More"}
                 </div>
               </div>
-              <div className="mt-4 flex flex-row justify-center lg:justify-start">
+              <div className="mt-4 flex flex-row justify-center">
                 <a className="btn btn-primary">Starting From PKR 2500/-</a>
               </div>
             </article>
@@ -86,10 +88,13 @@ export default function Home() {
           <div className="max-md:spacer"></div>
         </section>
         {/* PAGE 2 END */}
-        <section className="page bg-gradient-to-b from-slate-950 to-cyan-950/50">
-          <div className="text-white">{hello.data?.greeting}</div>
-        </section>
+        {/* PAGE 3 START */}
+        <Page3 />
+        {/* PAGE 3 END */}
+        {/* PAGE 4 START */}
+        <section className="page bg-gradient-to-b from-black via-indigo-950/40 via-15% to-black"></section>
       </main>
+      <Footer />
     </>
   );
 }

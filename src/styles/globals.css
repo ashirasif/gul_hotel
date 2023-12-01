@@ -19,6 +19,15 @@
   .spacer {
     @apply h-20 lg:h-60
   }
+
+  .room-details:not(:last-child) {
+    @apply pb-1 border-b border-slate-500 w-full
+  }
+  .room-details {
+    @apply text-center
+  }
+
+  
 }
 
 @layer base {
@@ -33,6 +42,9 @@
   }
   a {
     @apply text-white transition-colors duration-300 hover:text-white lg:text-slate-400;
+  }
+  body {
+    @apply bg-black
   }
 }
 
