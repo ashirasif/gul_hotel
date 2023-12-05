@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,900;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,900;1,300;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,6 +27,10 @@
     @apply text-center
   }
 
+
+  .ma-border {
+    @apply border border-white/60 rounded-2xl
+  }
   
 }
 
@@ -35,10 +39,13 @@
     @apply font-bebas text-7xl uppercase text-white lg:text-8xl 2xl:text-9xl;
   }
   h2 {
-    @apply text-center font-bebas text-4xl font-bold tracking-wider text-white lg:text-left 2xl:text-5xl;
+    @apply font-bebas text-4xl font-bold tracking-wider text-white 2xl:text-5xl;
   }
   p {
-    @apply text-center font-lato text-white lg:text-left 2xl:text-xl;
+    @apply font-lato text-white 2xl:text-xl;
+  }
+  label {
+    @apply font-lato text-white 2xl:text-xl;
   }
   a {
     @apply text-white transition-colors duration-300 hover:text-white lg:text-slate-400;

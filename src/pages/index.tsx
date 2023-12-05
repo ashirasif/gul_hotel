@@ -8,6 +8,7 @@ import { atom, useAtomValue, useSetAtom } from "jotai";
 import { api } from "~/utils/api";
 import Page3 from "~/components/page3";
 import Footer from "~/components/footer";
+import Link from "next/link";
 
 const pageScroll = atom(0);
 
@@ -72,7 +73,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-4 flex flex-row justify-center">
-                <a className="btn btn-primary">Starting From PKR 2500/-</a>
+                <Link className="btn btn-primary" href={"/rooms"}>Starting From PKR 2500/-</Link>
               </div>
             </article>
             <div className="flex basis-1/2 flex-row justify-center">

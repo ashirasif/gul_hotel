@@ -1,5 +1,9 @@
+import Link from "next/link";
 import React from "react";
 import { api } from "~/utils/api";
+
+
+
 
 const Room = ({ name }: { name: number }) => {
   const { data } = api.room.getRoom.useQuery({ name: name });
@@ -37,14 +41,14 @@ const Page3 = () => {
   return (
     <section className="page bg-gradient-to-b from-slate-950 to-black">
       <div className="spacer"></div>
-      <h2 className="text-center mb-4">What We Offer!</h2>
+      <h2 id="pricing" className="text-center mb-4">What We Offer!</h2>
       <div className="grid auto-cols-min grid-flow-col place-content-center gap-4">
         <Room name={206} />
         <Room name={201} />
         <Room name={101} />
       </div>
       <div className="flex flex-row justify-center mt-4">
-        <a href="" className="btn btn-lg btn-primary">Browse All</a>
+        <Link href="/rooms" className="btn btn-lg btn-primary">Browse All</Link>
       </div>
       
     </section>

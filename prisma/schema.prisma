@@ -77,3 +77,14 @@ model Rooms {
     price Int 
 }
 
+model Bookings {
+    id Int @id @default(autoincrement())
+    name String
+    phone String
+    email String
+    status String @default("pending") 
+    room Int
+    from DateTime @db.Date
+    till DateTime @db.Date
+}
+

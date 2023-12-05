@@ -21,7 +21,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="h-full w-px bg-white"></div>
-                <div className="flex flex-col gap-4 basis-1/2 items-center">
+                <div className="flex flex-col gap-4 basis-1/2 justify-around items-center">
                     <Icons />
                 </div>
             </div>
