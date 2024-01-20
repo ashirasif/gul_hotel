@@ -10,13 +10,13 @@ const Page = () => {
       <Cursor />
       <main className="">
         <section className="flex min-h-screen flex-col items-center justify-center p-4">
-          <div className="flex flex-col gap-4 text-center items-center lg:w-2/3">
+          <div className="flex flex-col items-center gap-4 text-center lg:w-2/3">
             <h2>We would love to hear from you</h2>
             <div className="flex flex-row justify-center gap-x-4">
-              <button className="btn btn-outline btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+              <button className="btn btn-primary btn-outline btn-xs sm:btn-sm md:btn-md lg:btn-lg">
                 Call +92 42 3595579
               </button>
-              <button className="btn btn-outline btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+              <button className="btn btn-primary btn-outline btn-xs sm:btn-sm md:btn-md lg:btn-lg">
                 Call +92 42 3595578
               </button>
             </div>
@@ -55,6 +55,10 @@ const Page = () => {
                     className="textarea textarea-bordered w-full"
                   />
                 </label>
+
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
               </div>
             </div>
           </div>

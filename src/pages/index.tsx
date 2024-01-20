@@ -14,8 +14,6 @@ const pageScroll = atom(0);
 
 export default function Home() {
   const [Read, setRead] = useState(false);
-  const page = useAtomValue(pageScroll);
-  const setPage = useSetAtom(pageScroll);
 
   return (
     <>
@@ -27,7 +25,6 @@ export default function Home() {
       <Cursor />
       <Navbar />
       <main className="bg-black">
-      
         <section className="page overflow-hidden bg-gradient-to-b from-teal-950 to-black">
           <div className="flex flex-row">
             <div className="flex min-h-screen w-1/2 flex-col items-end justify-center bg-black/60 p-4">
@@ -38,7 +35,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex min-h-screen flex-col justify-center gap-4 p-4">
-              <button className="btn btn-primary lg:btn-lg">Book Now</button>
+              <Link href="/rooms" className="btn btn-primary lg:btn-lg">
+                Book Now
+              </Link>
               <button className="btn btn-primary lg:btn-lg">Have A Tour</button>
             </div>
           </div>
@@ -52,8 +51,12 @@ export default function Home() {
         <section className="bg-gradient-to-b from-black to-slate-950">
           <div className="aflex gap-12">
             <article className="basis-1/2 self-center">
-              <h2 className="lg:text-center">How Things Go Here!</h2>
-              <p className={"lg:pt-4 lg:text-center" + (Read ? "" : " max-md:line-clamp-5")}>
+              <h2 className="text-center">How Things Go Here!</h2>
+              <p
+                className={
+                  "text-center lg:pt-4" + (Read ? "" : " max-md:line-clamp-5")
+                }
+              >
                 No fancy bells and whistles, just quality rest and relaxation at
                 a great price. In a world where travel often comes with a hefty
                 price tag, our hotel stands as a refreshing oasis of simplicity
@@ -73,7 +76,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-4 flex flex-row justify-center">
-                <Link className="btn btn-primary" href={"/rooms"}>Starting From PKR 2500/-</Link>
+                <Link className="btn btn-primary" href={"/rooms"}>
+                  Starting From PKR 2500/-
+                </Link>
               </div>
             </article>
             <div className="flex basis-1/2 flex-row justify-center">
@@ -93,7 +98,18 @@ export default function Home() {
         <Page3 />
         {/* PAGE 3 END */}
         {/* PAGE 4 START */}
-        <section className="page bg-gradient-to-b from-black via-indigo-950/40 via-15% to-black"></section>
+        <section className="page self-center flex flex-col justify-center bg-gradient-to-b from-black via-indigo-950/40 via-15% to-black">
+          <div className="flex flex-col items-center brightness-50 transition duration-300 hover:brightness-100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13614.793617326884!2d74.2732488!3d31.4499689!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901716d88712b%3A0x2fd945b7152516dc!2sGul%20Hotel!5e0!3m2!1sen!2s!4v1701632769788!5m2!1sen!2s"
+              // width="600"
+              // height="450"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-96 w-2/3"
+            ></iframe>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [openNav, setOpenNav] = useState(false);
   return (
-    <nav className="navbar relative top-0 bg-transparent px-2 lg:px-4">
+    <nav className="navbar absolute top-0 bg-transparent px-2 lg:px-4">
       <div className="navbar-start">
         <Link href={"/"}>
           <Image
@@ -53,7 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center max-lg:hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link href="/#pricing">Pricing</Link>

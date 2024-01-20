@@ -2,9 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { api } from "~/utils/api";
 
-
-
-
 const Room = ({ name }: { name: number }) => {
   const { data } = api.room.getRoom.useQuery({ name: name });
   if (data) {
@@ -39,18 +36,20 @@ const Room = ({ name }: { name: number }) => {
 
 const Page3 = () => {
   return (
-    <section className="page bg-gradient-to-b from-slate-950 to-black">
-      <div className="spacer"></div>
-      <h2 id="pricing" className="text-center mb-4">What We Offer!</h2>
-      <div className="grid auto-cols-min grid-flow-col place-content-center gap-4">
+    <section className="flex min-h-screen flex-col justify-center bg-gradient-to-b from-slate-950 to-black px-12">
+      <h2 id="pricing" className="mb-4 text-center">
+        What We Offer!
+      </h2>
+      <div className="grid auto-cols-fr grid-flow-row place-content-center gap-4 lg:auto-cols-min lg:grid-flow-col">
         <Room name={206} />
         <Room name={201} />
         <Room name={101} />
       </div>
-      <div className="flex flex-row justify-center mt-4">
-        <Link href="/rooms" className="btn btn-lg btn-primary">Browse All</Link>
+      <div className="mt-4 flex flex-row justify-center">
+        <Link href="/rooms" className="btn btn-primary btn-lg">
+          Browse All
+        </Link>
       </div>
-      
     </section>
   );
 };

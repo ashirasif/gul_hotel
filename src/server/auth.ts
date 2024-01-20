@@ -5,7 +5,8 @@ import {
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+
+import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "~/env.mjs";
 import { db } from "~/server/db";
@@ -37,26 +38,61 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  secret: env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+    maxAge: 7 * 24 * 60 * 60,
+  },
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+        token.name = user.name;
+      }
+      console.log("jwt callback", token);
+      return token;
+    },
+    session: ({ session, token, user }) => {
+      if (token) {
+        session.user.name = token.name;
+      }
+      return session;
+    },
+  },
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(
+        credentials: Record<"email" | "password", string> | undefined,
+      ) {
+        // Add logic here to look up the user from the credentials supplied
+        const user = {
+          id: "1",
+          name: "admin",
+          email: "admin@admin.com",
+          pass: "admin",
+        };
+        // check if credentials.email and credentials.password are valid
+        if (
+          credentials?.email === user.email &&
+          credentials?.password === user.pass
+        ) {
+          // Any object returned will be saved in `user` property of the JWT
+          return user;
+        } else {
+          // If you return null or false then the credentials will be rejected
+          return null;
+          // You can also Reject this callback with an Error or with a URL:
+          // throw new Error('error message') // Redirect to error page
+          // throw '/path/to/redirect'        // Redirect to a URL
+        }
       },
     }),
-  },
-  adapter: PrismaAdapter(db),
-  providers: [
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
   ],
 };
 

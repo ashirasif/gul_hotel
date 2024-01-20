@@ -5,7 +5,7 @@
 
 @layer components {
   .page {
-    @apply h-screen w-screen;
+    @apply min-h-screen w-screen;
   }
 
   .aflex {
@@ -17,21 +17,30 @@
   }
 
   .spacer {
-    @apply h-20 lg:h-60
+    @apply h-20 lg:h-60;
   }
 
   .room-details:not(:last-child) {
-    @apply pb-1 border-b border-slate-500 w-full
+    @apply w-full border-b border-slate-500 pb-1;
   }
   .room-details {
-    @apply text-center
+    @apply text-center;
   }
-
 
   .ma-border {
-    @apply border border-white/60 rounded-2xl
+    @apply rounded-2xl border border-white/60;
   }
-  
+
+  .room-card-details {
+    @apply flex flex-row gap-2;
+  }
+
+  .room-card-svg {
+    @apply fill-white stroke-white;
+  }
+  .room-card-bed {
+    @apply font-light;
+  }
 }
 
 @layer base {
@@ -51,7 +60,13 @@
     @apply text-white transition-colors duration-300 hover:text-white lg:text-slate-400;
   }
   body {
-    @apply bg-black
+    @apply bg-black;
+  }
+}
+
+@layer utilities {
+  .ma-table > * {
+    @apply border border-white;
   }
 }
 

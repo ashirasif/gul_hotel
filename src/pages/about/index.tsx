@@ -9,9 +9,9 @@ const Page = () => {
       <Navbar />
       <Cursor />
       <main className="">
-        <section className="my-12 flex min-h-screen w-full flex-col items-center justify-center gap-16 px-4 2xl:gap-52">
+        <section className="my-16 flex min-h-screen flex-col items-center justify-center gap-16 px-4 2xl:gap-52">
           {/* WELCOME */}
-          <div className="flex w-2/3 flex-row items-center justify-center gap-4">
+          <div className="aflex max-w-4xl items-center justify-center gap-4">
             <div className="flex flex-col justify-start gap-8">
               <div className="">
                 <h2>
@@ -49,7 +49,7 @@ const Page = () => {
             </div>
           </div>
           {/* GOAL */}
-          <div className="flex w-2/3 flex-row items-center justify-center gap-8">
+          <div className="aflex max-w-4xl items-center justify-center gap-8 max-md:flex-col-reverse">
             <div>
               <Image
                 src={"/about2.jpeg"}
@@ -79,7 +79,7 @@ const Page = () => {
             </div>
           </div>
           {/* SINGLE MSG */}
-          <div className="w-2/3 text-center italic">
+          <div className="max-w-4xl text-center italic">
             <p>
               &quot;As you explore Gul Hotel, you'll discover our commitment to
               sustainability, community involvement, and a celebration of local
@@ -90,9 +90,9 @@ const Page = () => {
             <p className="mt-4 font-bold">Imran</p>
             <p className="font-thin">Owner - Gul Hotel</p>
           </div>
-          <div className="flex flex-col justify-start gap-4 w-2/3">
+          <div className="flex max-w-4xl flex-col justify-start gap-4">
             <h2 className="text-center">Get In Touch!</h2>
-            <div className="ma-border bg-white/5 p-4 flex flex-col gap-4">
+            <div className="ma-border flex flex-col gap-4 bg-white/5 p-4">
               <div className="flex flex-row gap-4">
                 <label className="form-control w-full basis-1/2">
                   <div className="label">
@@ -125,10 +125,20 @@ const Page = () => {
                   className="textarea textarea-bordered w-full"
                 />
               </label>
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
             </div>
           </div>
-          <div className="w-2/3 brightness-50 hover:brightness-100 transition duration-300">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13614.793617326884!2d74.2732488!3d31.4499689!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901716d88712b%3A0x2fd945b7152516dc!2sGul%20Hotel!5e0!3m2!1sen!2s!4v1701632769788!5m2!1sen!2s" width="600" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full"></iframe>
+          <div className="w-2/3 brightness-50 transition duration-300 hover:brightness-100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13614.793617326884!2d74.2732488!3d31.4499689!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391901716d88712b%3A0x2fd945b7152516dc!2sGul%20Hotel!5e0!3m2!1sen!2s!4v1701632769788!5m2!1sen!2s"
+              width="600"
+              height="450"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            ></iframe>
           </div>
         </section>
       </main>

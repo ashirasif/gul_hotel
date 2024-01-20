@@ -86,5 +86,6 @@ model Bookings {
     room Int
     from DateTime @db.Date
     till DateTime @db.Date
+    price Int @default(1000)
 }
 
