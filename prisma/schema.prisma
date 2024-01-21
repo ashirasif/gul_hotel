@@ -6,12 +6,9 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-    url = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
 // model Post {
@@ -53,15 +50,15 @@ datasource db {
 //     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 // }
 
-model User {
-    id            String    @id @default(cuid())
-    name          String?
-    email         String?   @unique
-    password String?
-    // accounts      Account[]
-    // sessions      Session[]
-    // posts         Post[]
-}
+// model User {
+//     id            String    @id @default(cuid())
+//     name          String?
+//     email         String?   @unique
+//     password String?
+//     accounts      Account[]
+//     sessions      Session[]
+//     posts         Post[]
+// }
 
 model Rooms {
     id Int @id @default(autoincrement())
