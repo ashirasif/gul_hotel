@@ -29,7 +29,6 @@ export const bookingRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       const booking = await ctx.db.bookings.create({ data: input });
-      console.log("booking", booking);
     }),
 
   getAllBookings: publicProcedure.query(({ ctx }) => {

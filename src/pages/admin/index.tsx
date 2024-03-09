@@ -20,6 +20,9 @@ export default function Page() {
           <Link href={"/admin/rooms/"} className="btn btn-primary">
             Rooms
           </Link>
+          <Link href={"/admin/expenses/"} className="btn btn-primary">
+            Expenses
+          </Link>
         </div>
       </section>
     </main>

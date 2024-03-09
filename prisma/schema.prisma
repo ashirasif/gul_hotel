@@ -86,3 +86,9 @@ model Bookings {
     price Int @default(1000)
 }
 
+model Expenses {
+    id Int @id @default(autoincrement())
+    name String
+    amount Int
+    date DateTime @db.Date
+}
